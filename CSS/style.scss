@@ -1,0 +1,113 @@
+// Import mixins and variables files
+@import "variables";
+@import "mixins";
+
+//Delete default settings
+*{
+    margin: $zero;
+    padding: $zero;
+    box-sizing: border-box;
+}
+
+// Container style start
+#container{
+    @include size(100%, 100vh);
+    background-color: $darkRed;
+    @include flexCenter();
+    #main{
+        @include size(900px, 900px);
+        @include flDownAround();
+        background-color: $red;
+        box-shadow: 0px 0px 15px $shadow;
+        #inputPlace{
+            @include size(80%, 100px);
+            background-color: $orange;
+            border-radius: 20px;
+            @include flexEvenly();  
+            input{
+                @include size(44%, 40px);
+                outline: none;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.699);
+                clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+                text-align: center;
+                font-size: 20px;
+                color: $darkRed;
+                &:nth-child(2){
+                    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+                }
+            }
+        }
+        #buttons{
+            @include size(50%, 60px);
+            background-color: $orange;
+            border-radius: 20px;
+            @include flexEvenly();
+            button{
+                @include size(45%, 45px);
+                background-color: $green;
+                border: none;
+                clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+                font-size: 20px;
+                color: $white;
+                cursor: pointer;
+                transition: all .5s ease-in-out;
+                &:hover{
+                    background-color: $white;
+                    color: $green;
+                }
+                &:nth-child(2):hover{
+                    color: $red;
+                }
+            }  
+        }
+        #table{
+            @include size(80%, 650px);
+            background-color: $orange;
+            @include flDownBetween();
+            #header{
+                @include size(100%, 50px);
+                background-color: $lightGreen;
+                @include flexBetween();
+                h3{
+                    @include size(50%, 50px);
+                    text-align: center;
+                    line-height: 50px;
+                    color: $darkRed;
+                    border-bottom: 2px solid $darkRed;
+                    &:nth-child(1){
+                        border-right: 2px solid $darkRed;
+                    }
+                }
+            }
+            #info{
+                @include size(100%, 580px);
+                background-color: $lightGreen;
+                flex: 1;
+                overflow: auto;
+                scroll-behavior: smooth;
+                div{
+                    @include size(100%, 60px);
+                    background-color: $darkRed;
+                    margin-top: 10px;
+                    @include flexBetween();
+                    p{
+                        @include size(50%, 100%);
+                        line-height: 60px;
+                        color: $orange;
+                        font-size: 16.5px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        @include flexBetween();
+                        &:nth-child(1){
+                            border-right: 2px solid $orange;
+                        }
+                        i{
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
